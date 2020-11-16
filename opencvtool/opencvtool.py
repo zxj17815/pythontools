@@ -73,6 +73,7 @@ class CutMainObject():
         if self.out_height and self.out_width:
             cropImg=cv2.resize(cropImg,(self.out_height,self.out_width))
         cv2.imwrite(self.out_path+"/"+self.out_name+".png", cropImg)
+        return self.out_path+"/"+self.out_name+".png"
 
     def _Show(self):
         """just test， show GUI

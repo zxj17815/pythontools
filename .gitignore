@@ -3,3 +3,4 @@ opencvtool/images/*.jpg
 opencvtool/out/*.png
 pdf2png/images/*.png
 pdf2png/pdf/*.pdf
+*.pyc
