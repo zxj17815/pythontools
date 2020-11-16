@@ -6,3 +6,6 @@ Image processing tools based on cv2,numpy
 
 #### pdf2png
 Input PDF output png
+
+#### pdfcut
+Cut pdf page
