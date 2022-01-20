@@ -4,3 +4,7 @@ opencvtool/out/*.png
 pdf2png/images/*.png
 pdf2png/pdf/*.pdf
 *.pyc
+pdf2png/images/*
+pdf2png/pdf/*
+!.gitkeep
+.idea
