@@ -1,0 +1,18 @@
+[project]
+name = "pdf2png"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "iceiceice", email = "597952291@qq.com"},
+]
+dependencies = [
+    "PyMuPDF==1.19.6",
+    "Pillow==9.0.0",
+]
+requires-python = "==3.13.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
