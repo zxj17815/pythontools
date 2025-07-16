@@ -40,17 +40,17 @@ def pyMuPDF_fitz(pdfPath, imagePath):
     print("imagePath=" + imagePath)
     pdfDoc = fitz.open(pdfPath)
     i = 1
-    count = pdfDoc.pageCount
+    count = pdfDoc.page_count
     print('count', count)
-    for pg in range(pdfDoc.pageCount):
+    for pg in range(pdfDoc.page_count):
         page = pdfDoc[pg]
         rotate = int(0)
         # 每个尺寸的缩放系数为1.3，这将为我们生成分辨率提高2.6的图像。
         # 此处若是不做设置，默认图片大小为：792X612, dpi=96
         zoom_x = 3  # (1.33333333-->1056x816)   (2-->1584x1224)
         zoom_y = 3
-        mat = fitz.Matrix(zoom_x, zoom_y).preRotate(rotate)
-        pix = page.getPixmap(matrix=mat, alpha=False)
+        mat = fitz.Matrix(zoom_x, zoom_y).prerotate(rotate)
+        pix = page.get_pixmap(matrix=mat, alpha=False)
 
         (filepath, tempfilename) = os.path.split(pdfPath)
         (filename, extension) = os.path.splitext(tempfilename)
@@ -58,8 +58,8 @@ def pyMuPDF_fitz(pdfPath, imagePath):
             os.makedirs(imagePath + '/' + 'images_%s' %
                         filename)  # 若图片文件夹不存在就创建
         print(imagePath + '/' + 'images_%s/%s.png' % (filename, i))
-        pix.writePNG(imagePath + '/' + 'images_%s/%s.png' %
-                     (filename, i))  # 将图片写入指定的文件夹内
+        pix.save(imagePath + '/' + 'images_%s/%s.png' %
+                 (filename, i))  # 将图片写入指定的文件夹内
         p = imagePath + '/' + 'images_%s' % filename
         if i == count:
             combine2Pdf(p, p)
